@@ -30,6 +30,8 @@ o.showmode = true
 o.showcmd = true
 o.hidden = true
 o.belloff = true
+o.visualbell = false
+o.errorbells = false
 
 if settings.global_statusline then
 	o.laststatus = 3
@@ -77,22 +79,6 @@ o.wildignore = [[
 
 o.number = settings.number
 o.relativenumber = settings.relativenumber
-
-api.nvim_create_autocmd({"InsertEnter"}, {
-  pattern = {"*"},
-  callback = function() 
-    o.relativenumber = false
-  end 
-})
-
-api.nvim_create_autocmd({"InsertLeave"}, {
-  pattern = {"*"},
-  callback = function() 
-    o.relativenumber = true
-  end 
-})
-
-vim.keymap.set("v", ".", ":normal .<CR>")
 
 o.tabstop=2
 o.shiftwidth=2

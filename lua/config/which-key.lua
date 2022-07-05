@@ -75,20 +75,41 @@ local default_options = { silent = true }
 
 -- register non leader based mappings
 wk.register({
-  sa = "Add surrounding",
-  sd = "Delete surrounding",
-  sr = "Replace surrounding",
-  ff = "Find files",
-  fb = "Find buffers",
-  fg = "Grep in files",
-  fcs = "List Color schemes",
-  fp = "Open project",
-  fh = "Telescope Headings",
-  fk = "Telescope Keymaps",
-  fc = "Telescope Commands",
-  fP = "Telescope Builtin",
-  -- '[c' = "Previous Diagnostic",
-  -- ']c' = "Next Diagnostic"
+  ['<C-h>'] = { "<cmd>BufferLineCyclePrev<CR>", "Previous Tab/Buffer"},
+  ['<C-l>'] = { "<cmd>BufferLineCycleNext<CR>", "Next Tab/Buffer"},
+  ['<C-S-h>'] = { "<cmd>BufferLineMovePrev<CR>", "Move Back Tab/Buffer"},
+  ['<C-S-l>'] = { "<cmd>BufferLineMoveNext<CR>", "Move Forth Tab/Buffer"},
+  ['<C-n>'] = "Number toggle",
+  ['<C-w>'] = { "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>", "Close Tab/Buffer"},
+  f = {
+    f = { "<cmd>lua require('telescope.builtin').find_files()<CR>", "Find files" },
+    b = { "<cmd>lua require('telescope.builtin').buffers()<CR>", "Find buffers" },
+    g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Grep in files" },
+    s = { "<cmd>lua require('telescope.builtin').grep_string()<CR>", "List Color schemes" },
+    p = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Open project" },
+    h = { "<cmd>Telescope heading<cr>", "Telescope Headings" },
+    k = { "<cmd>Telescope keymaps<cr>", "Telescope Keymaps" },
+    c = { "<cmd>Telescope commands<cr>", "Telescope Commands" },
+    P = { "<cmd>Telescope builtin<cr>", "Telescope Builtin" },
+  },
+  g = {
+    name = "Coding Mappings",
+    D = { "<cmd>lua require('telescope.builtin').lsp_definitions({query='vim.lsp.buf.definition()'})<CR>", "LSP Definitions" },
+    i = { "<cmd>lua require('telescope.builtin').lsp_implementations({query='vim.lsp.buf.implementation()'})<CR>", "LSP Implementations" },
+    r = { "<cmd>lua require('telescope.builtin').lsp_references({query='vim.lsp.buf.references()'})<CR>", "LSP References" },
+    R = { "<cmd>Trouble lsp_references<cr>", "LSP References (Trouble)" },
+    ds = { "<cmd>lua require('telescope.builtin').lsp_document_symbols({query = 'vim.lsp.buf.document_symbol()'})<CR>", "LSP Doc Symbols" },
+    ws = { "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols({query = 'vim.lsp.buf.document_symbol()'})<CR>", "LSP WS Symbols" },
+
+  },
+  K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "LSP Hover" },
+  s = {
+    a = "Add surrounding",
+    d = "Delete surrounding",
+    r = "Replace surrounding",
+  },
+  ['[c'] = { "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>","Previous Diagnostic" },
+  [']c'] = { "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>","Next Diagnostic" }
 })
 
 -- Register all leader based mappings
@@ -96,17 +117,17 @@ wk.register({
   ["<tab>"] = { "Semantic visual selection" },
   a = {
     name = "Telescope Diagnostics",
-    a = { "<cmd>lua require('telescope.builtin').extensions.diagnostics()<CR>", "All workspace diagnostics" },
-    e = { "<cmd>lua require('telescope.builtin').extensions.diagnostics({severity = 'E'})<CR>", "All workspace errors" },
-    w = { "<cmd>lua require('telescope.builtin').extensions.diagnostics({severity = 'W'})<CR>", "All workspace warnings" },
-    d = { "<cmd>lua require('telescope.builtin').extensions.diagnostics({bufnr = 0})<CR>", "Current buffer diagnostics" }
+    x = { "<cmd>lua require('telescope.builtin').diagnostics()<CR>", "All workspace diagnostics" },
+    w = { "<cmd>lua require('telescope.builtin').diagnostics({severity = 'E'})<CR>", "All workspace errors" },
+    d = { "<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<CR>", "Current buffer diagnostics" }
   },
   c = {
     name = "LSP Actions",
-    s = { "<cmd>lua vim.lsp.codelens.run()<CR>", "Run Codelens" },
+    s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
     r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format current buffer" },
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Run Code Action current buffer" },
+    l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "Run Code lens"},
     t = {
       name = "LSP Tree view",
       v = { "<cmd>lua require('metals.tvp').toggle_tree_view()<CR>", "Toggle LSP Tree view" },
@@ -130,6 +151,7 @@ wk.register({
     f = { "<cmd>Telescope file_browser<cr>", "File browser" },
     t = { "<cmd>TodoTelescope<cr>", "TODOs browser" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    s = { "<cmd>lua require('telescope.builtin').colorscheme()<CR>", "Pick Color scheme"},
     T = { "<cmd>NvimTreeFindFile<CR>", "Find in Tree" },
   },
   l = {
@@ -137,14 +159,15 @@ wk.register({
   },
   p = { "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", "Yank history" },
   t = { "<cmd>NvimTreeToggle<CR>", "Folder Tree toggle"},
+  T = { "<cmd>NvimTreeFindFile<CR>", "Find file in Tree"},
   w = {
-    s = { "LSP Metals WS hover" }
+    s = {  '<cmd>lua require"metals".hover_worksheet()<CR>', "LSP Metals worksheet hover" }
   },
   x = {
     name = "Trouble",
     x = { "<cmd>Trouble<cr>", "Trouble Diagnostics" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Trouble WS Diagnostics" },
-    w = { "<cmd>Trouble document_diagnostics<cr>", "Trouble Doc Diagnostics" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Trouble Doc Diagnostics" },
     l = { "<cmd>Trouble loclist<cr>", "Trouble LocList" },
     q = { "<cmd>Trouble quickfix<cr>", "Trouble QuickFix" },
     t = { "<cmd>TodoTrouble<cr>", "Trouble TODO" },

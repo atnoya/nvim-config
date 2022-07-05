@@ -109,13 +109,15 @@ packer.startup({
       config = utils.get_config('lualine'),
     }
 
-    -- Tabs
+    -- Tabs / Buffers
     use {
       'akinsho/bufferline.nvim', 
       tag = "v2.*", 
       requires = 'kyazdani42/nvim-web-devicons',
       config = utils.get_config('bufferline')
     }
+
+    use { 'famiu/bufdelete.nvim' }
 
     -- Automatic closing brackets, parenthesis...
     use {
