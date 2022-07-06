@@ -21,8 +21,6 @@ local get_filename_fn = function()
   end
 end
 
-local_utils.fg("TelescopeCustomSymbolPath", "#666666")
-
 local lsp_type_highlight = {
   ["Class"] = "TelescopeResultsClass",
   ["Interface"] = "TelescopeResultsClass",

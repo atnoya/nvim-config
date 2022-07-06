@@ -1,6 +1,6 @@
 vim.opt.list = true
-vim.cmd [[highlight IndentBlanklineContextPattern guifg=#DDDDDD gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineContextChar guifg=#CCCCCC gui=nocombine]]
+
+require("custom-colors").set_indent_blank_line_custom_colors()
 
 require("indent_blankline").setup {
     space_char_blankline = " ",

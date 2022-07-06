@@ -8,12 +8,6 @@ local previewers = require("telescope.previewers")
 
 local fb_actions = telescope.extensions.file_browser.actions
 
--- vim.g.theme_switcher_loaded = true
-
-telescope.load_extension("projects")
-telescope.load_extension("heading")
-telescope.load_extension("file_browser")
-telescope.load_extension("ui-select")
 
 telescope.setup({
 	extensions = {
@@ -106,11 +100,8 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
-    -- file_sorter = sorters.get_fuzzy_file,
-    -- generic_sorter = sorters.get_generic_fuzzy_sorter,
-    -- file_previewer = previewers.vim_buffer_cat.new,
-    -- grep_previewer = previewers.vim_buffer_vimgrep.new,
-    -- qflist_previewer = previewers.vim_buffer_qflist.new,
+    -- file_sorter =  sorters.get_fzy_sorter,
+    -- generic_sorter =  sorters.get_fzy_sorter,
 		winblend = 0,
 		border = true,
 		color_devicons = true,
@@ -118,28 +109,11 @@ telescope.setup({
 	},
 })
 
-local light_black = "#3D3D3D"
-local dark_black = "#222222"
-local dark_white = "#BBBBBB"
-local white = "#EEEEEE"
+telescope.load_extension("projects")
+telescope.load_extension("heading")
+telescope.load_extension("file_browser")
+telescope.load_extension("ui-select")
+telescope.load_extension('fzy_native')
 
--- color
-utils.bg("TelescopeNormal", dark_black)
-utils.fg_bg("TelescopeTitle", dark_black, dark_black)
-utils.fg_bg("TelescopeBorder", dark_black, dark_black)
+require("custom-colors").set_telescope_custom_colors()
 
-utils.fg_bg("TelescopePromptBorder", light_black, light_black)
-utils.fg_bg("TelescopePromptPrefix", white, light_black, "bold")
-utils.fg_bg("TelescopePromptTitle", white, "#BB3333")
-utils.fg_bg("TelescopePromptNormal", white, light_black)
-utils.fg_bg("TelescopePromptCounter", white, light_black)
-
-utils.fg_bg("TelescopePreviewBorder", dark_black, dark_black)
-utils.fg_bg("TelescopePreviewTitle", white, "#338833")
-utils.fg_bg("TelescopePreviewNormal", dark_white, dark_black)
-
-utils.fg_bg("TelescopeResultsBorder", dark_black, dark_black)
-utils.fg_bg("TelescopeResultsTitle", dark_black, dark_black)
-utils.fg_bg("TelescopeResultsNormal", dark_white, dark_black)
-
-utils.fg_bg("TelescopeSelection", white, light_black)

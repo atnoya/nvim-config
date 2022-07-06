@@ -175,7 +175,8 @@ packer.startup({
         {'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-ui-select.nvim' },
         { "nvim-telescope/telescope-file-browser.nvim" },
-        {'crispgm/telescope-heading.nvim'}
+        {'crispgm/telescope-heading.nvim'},
+        {'nvim-telescope/telescope-fzy-native.nvim'}
       },
       config = utils.get_config('telescope')
     }
