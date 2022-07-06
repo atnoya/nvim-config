@@ -94,12 +94,12 @@ wk.register({
   },
   g = {
     name = "Coding Mappings",
-    D = { "<cmd>lua require('telescope.builtin').lsp_definitions({query='vim.lsp.buf.definition()'})<CR>", "LSP Definitions" },
-    i = { "<cmd>lua require('telescope.builtin').lsp_implementations({query='vim.lsp.buf.implementation()'})<CR>", "LSP Implementations" },
-    r = { "<cmd>lua require('telescope.builtin').lsp_references({query='vim.lsp.buf.references()'})<CR>", "LSP References" },
+    D = { "<cmd>lua require('lsp-format-fns').lsp_definitions_custom()<CR>", "LSP Definitions" },
+    i = { "<cmd>lua require('lsp-format-fns').lsp_implementations_custom()<CR>", "LSP Implementations" },
+    r = { "<cmd>lua require('lsp-format-fns').lsp_references_custom()<CR>", "LSP References" },
     R = { "<cmd>Trouble lsp_references<cr>", "LSP References (Trouble)" },
-    ds = { "<cmd>lua require('telescope.builtin').lsp_document_symbols({query = 'vim.lsp.buf.document_symbol()'})<CR>", "LSP Doc Symbols" },
-    ws = { "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols({query = 'vim.lsp.buf.document_symbol()'})<CR>", "LSP WS Symbols" },
+    ds = { "<cmd>lua require('lsp-format-fns').lsp_document_symbols_custom()<CR>", "LSP Doc Symbols" },
+    ws = { "<cmd>lua require('lsp-format-fns').lsp_dynamic_workspace_symbols_custom()<CR>", "LSP WS Symbols" },
 
   },
   K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "LSP Hover" },
@@ -110,7 +110,7 @@ wk.register({
   },
   ['[c'] = { "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>","Previous Diagnostic" },
   [']c'] = { "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>","Next Diagnostic" }
-})
+}, { noremap = true })
 
 -- Register all leader based mappings
 wk.register({

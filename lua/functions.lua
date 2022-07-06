@@ -25,7 +25,7 @@ end
 -- @param gui bold or other
 M.fg = function(group, col, gui)
   local resolved = gui or "NONE"
-  cmd("hi " .. group .. " guifg=" .. col .. " gui=" .. gui)
+  cmd("hi " .. group .. " guifg=" .. col .. " gui=" .. resolved)
 end
 
 -- Define bg and fg color

@@ -148,7 +148,7 @@ packer.startup({
       "AckslD/nvim-neoclip.lua",
       requires = {
         {'tami5/sqlite.lua', module = 'sqlite'},
-        {'nvim-telescope/telescope.nvim'},
+        {'nvim-telescope/telescope.nvim', opt = true},
       },
       config = utils.get_config('neoclip')
     }

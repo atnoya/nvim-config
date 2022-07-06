@@ -2,15 +2,22 @@ local utils = require("functions")
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
-local fb_actions = require("telescope").extensions.file_browser.actions
+local sorters = require("telescope.sorters")
+local themes = require("telescope.themes")
+local previewers = require("telescope.previewers")
 
-vim.g.theme_switcher_loaded = true
+local fb_actions = telescope.extensions.file_browser.actions
+
+-- vim.g.theme_switcher_loaded = true
+
+telescope.load_extension("projects")
+telescope.load_extension("heading")
+telescope.load_extension("file_browser")
+telescope.load_extension("ui-select")
 
 telescope.setup({
 	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
-		},
+		["ui-select"] = { themes.get_dropdown({}) },
 		file_browser = {
 			mappings = {
 				i = {
@@ -99,22 +106,17 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
-    file_sorter = require("telescope.sorters").get_fuzzy_file,
-    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    -- file_sorter = sorters.get_fuzzy_file,
+    -- generic_sorter = sorters.get_generic_fuzzy_sorter,
+    -- file_previewer = previewers.vim_buffer_cat.new,
+    -- grep_previewer = previewers.vim_buffer_vimgrep.new,
+    -- qflist_previewer = previewers.vim_buffer_qflist.new,
 		winblend = 0,
 		border = true,
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 	},
 })
-
-telescope.load_extension("projects")
-telescope.load_extension("heading")
-telescope.load_extension("file_browser")
-telescope.load_extension("ui-select")
 
 local light_black = "#3D3D3D"
 local dark_black = "#222222"
