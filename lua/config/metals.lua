@@ -28,7 +28,7 @@ local metals_config = require("metals").bare_config()
 -- Example of settings
 metals_config.settings = {
   showImplicitArguments = true,
-  excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+  excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl", "--com.oracle" },
 }
 
 metals_config.init_options.statusBarProvider = "on"

@@ -93,6 +93,13 @@ packer.startup({
 	    }
     end
 
+    -- Smooth scrolling
+    use { 
+      'karb94/neoscroll.nvim',
+      config = utils.get_config('neoscroll')
+
+    }
+
     -- Git
     use { 'airblade/vim-gitgutter' }
 
@@ -228,6 +235,14 @@ packer.startup({
       requires = "nvim-lua/plenary.nvim",
       config = utils.get_config("todos"),
     })
+
+    -- ToggleTerm
+    use({
+      "akinsho/toggleterm.nvim", 
+      tag = 'v2.*', 
+      config = utils.get_config("toggleterm"),
+    })
+
   end,
   config = {
     display = {

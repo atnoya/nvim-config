@@ -60,7 +60,7 @@ o.foldmethod = "marker"
 o.dictionary = "/usr/share/dict/words"
 o.completeopt=[[menuone,preview,noinsert]]
 o.wildmenu = true
-o.wildmode = "list:longest,full"
+o.wildmode = "longest,full"
 o.wildignorecase = true -- When set case is ignored when completing file names and directories
 o.wildignore = [[
 .git,.hg,.svn

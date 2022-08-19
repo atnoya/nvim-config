@@ -100,8 +100,8 @@ telescope.setup({
       height = 0.80,
       preview_cutoff = 120,
     },
-    -- file_sorter =  sorters.get_fzy_sorter,
-    -- generic_sorter =  sorters.get_fzy_sorter,
+    file_sorter =  sorters.get_fzy_sorter,
+    generic_sorter =  sorters.get_fzy_sorter,
 		winblend = 0,
 		border = true,
 		color_devicons = true,
@@ -116,4 +116,3 @@ telescope.load_extension("ui-select")
 telescope.load_extension('fzy_native')
 
 require("custom-colors").set_telescope_custom_colors()
-

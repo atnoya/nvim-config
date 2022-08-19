@@ -29,37 +29,37 @@ require("bufferline").setup{
   },
   highlights = {
     tab_selected = {
-      gui = 'bold'
+      bold = true
     },
     buffer_selected = {
-      gui = 'bold'
+      bold = true
     },
     diagnostic_selected = {
-      gui = 'bold'
+      bold = true
     },
     info_selected = {
-      gui = 'bold'
+      bold = true
     },
     info_diagnostic_selected = {
-      gui = 'bold'
+      bold = true
     },
     warning_selected = {
-      gui = 'bold'
+      bold = true
     },
     warning_diagnostic_selected = {
-      gui = 'bold'
+      bold = true
     },
     error_selected = {
-      gui = 'bold'
+      bold = true
     },
     error_diagnostic_selected = {
-      gui = 'bold'
+      bold = true
     },
     pick_selected = {
-      gui = 'bold'
+      bold = true
     },
     pick = {
-      gui = 'bold'
+      bold = true
     }
   }
 }

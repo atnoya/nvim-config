@@ -153,6 +153,12 @@ _G.packer_plugins = {
     path = "/Users/atubiono/.local/share/nvim/site/pack/packer/opt/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neoscroll.nvim"] = {
+    config = { 'require("config/neoscroll")' },
+    loaded = true,
+    path = "/Users/atubiono/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nvim-autopairs"] = {
     config = { 'require("config/autopairs")' },
     loaded = true,
@@ -280,6 +286,12 @@ _G.packer_plugins = {
     path = "/Users/atubiono/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
+  ["toggleterm.nvim"] = {
+    config = { 'require("config/toggleterm")' },
+    loaded = true,
+    path = "/Users/atubiono/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["trouble.nvim"] = {
     config = { 'require("config/trouble")' },
     loaded = true,
@@ -348,58 +360,54 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: gruvbox.nvim
-time([[Config for gruvbox.nvim]], true)
-require("config/gruvbox_theme")
-time([[Config for gruvbox.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-require("config/trouble")
-time([[Config for trouble.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("config/autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: surround.nvim
-time([[Config for surround.nvim]], true)
-require("config/surround")
-time([[Config for surround.nvim]], false)
--- Config for: nvim-metals
-time([[Config for nvim-metals]], true)
-require("config/metals")
-time([[Config for nvim-metals]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require("config/nvim-tree")
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-require("config/comment")
-time([[Config for nvim-comment]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("config/nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-require("config/alpha-nvim")
-time([[Config for alpha-nvim]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+require("config/neoclip")
+time([[Config for nvim-neoclip.lua]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require("config/which-key")
 time([[Config for which-key.nvim]], false)
+-- Config for: nvim-metals
+time([[Config for nvim-metals]], true)
+require("config/metals")
+time([[Config for nvim-metals]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("config/nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require("config/dap")
+time([[Config for nvim-dap]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require("config/comment")
+time([[Config for nvim-comment]], false)
 -- Config for: project.nvim
 time([[Config for project.nvim]], true)
 require("config/project")
 time([[Config for project.nvim]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-require("config/nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require("config/nvim-cmp")
-time([[Config for nvim-cmp]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+require("config/nvim-dap-virtual-text")
+time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require("config/alpha-nvim")
+time([[Config for alpha-nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require("config/neoscroll")
+time([[Config for neoscroll.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require("config/toggleterm")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("config/telescope")
+time([[Config for telescope.nvim]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 require("config/bufferline")
@@ -408,22 +416,34 @@ time([[Config for bufferline.nvim]], false)
 time([[Config for todo-comments.nvim]], true)
 require("config/todos")
 time([[Config for todo-comments.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("config/telescope")
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-neoclip.lua
-time([[Config for nvim-neoclip.lua]], true)
-require("config/neoclip")
-time([[Config for nvim-neoclip.lua]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-require("config/nvim-dap-virtual-text")
-time([[Config for nvim-dap-virtual-text]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require("config/dap")
-time([[Config for nvim-dap]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("config/nvim-cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+require("config/trouble")
+time([[Config for trouble.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+require("config/nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: gruvbox.nvim
+time([[Config for gruvbox.nvim]], true)
+require("config/gruvbox_theme")
+time([[Config for gruvbox.nvim]], false)
+-- Config for: surround.nvim
+time([[Config for surround.nvim]], true)
+require("config/surround")
+time([[Config for surround.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("config/autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require("config/nvim-tree")
+time([[Config for nvim-tree.lua]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

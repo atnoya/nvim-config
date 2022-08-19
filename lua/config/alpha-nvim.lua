@@ -122,40 +122,17 @@ local function mru(start, cwd, items_number, opts)
 	}
 end
 
-local section_mru = {
-	type = "group",
-	val = {
-		{
-			type = "text",
-			val = "Recent files",
-			opts = {
-				hl = "SpecialComment",
-				shrink_margin = false,
-				position = "center",
-			},
-		},
-		{ type = "padding", val = 1 },
-		{
-			type = "group",
-			val = function()
-				return { mru(1, cdir, 9) }
-			end,
-			opts = { shrink_margin = false },
-		},
-	},
-}
-
 local buttons = {
 	type = "group",
 	val = {
-		{ type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+		{ type = "text", val = "Menu", opts = { hl = "SpecialComment", position = "center" } },
 		{ type = "padding", val = 1 },
 		dashboard.button("p", "  Search projects", ":Telescope projects<CR>"),
 		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 		dashboard.button("b", "  File Browser", ":Telescope file_browser <CR>"),
 		dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
 		dashboard.button("r", "  Recent files", ":Telescope oldfiles <CR>"),
-		dashboard.button("c", "  Configuration", ":lua require('telescope').extensions.file_browser.file_browser({path = '~/.config/nvim/' })<CR>"),
+		dashboard.button("c", "  Configuration", ":lua require('telescope.builtin').find_files({cwd = '~/.config/nvim/' })<CR>"),
 		dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
 		dashboard.button("q", "  Quit", ":qa<CR>"),
 	},
@@ -164,8 +141,6 @@ local buttons = {
 
 local opts = {
 	layout = {
-		{ type = "padding", val = 2 },
-		section_mru,
 		{ type = "padding", val = 2 },
 		buttons,
 	},

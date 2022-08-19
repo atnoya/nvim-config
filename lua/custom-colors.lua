@@ -27,7 +27,8 @@ M.set_telescope_custom_colors = function()
   utils.fg_bg("TelescopeResultsTitle", dark_black, dark_black)
   utils.fg_bg("TelescopeResultsNormal", dark_white, dark_black)
 
-  utils.fg_bg("TelescopeSelection", white, light_black)
+  utils.fg_bg("TelescopeSelection", white, dark_black, "bold")
+  utils.fg("TelescopeSelectionCaret", "#BB4444", "bold")
 
   -- Telescope custom LSP entries
   utils.fg("TelescopeCustomSymbolPath", "#666666")

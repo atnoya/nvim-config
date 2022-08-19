@@ -155,7 +155,8 @@ wk.register({
     T = { "<cmd>NvimTreeFindFile<CR>", "Find in Tree" },
   },
   l = {
-    c = {"<cmd>lua require('telescope').extensions.metals.commands()<CR>", "Show Metals Commands"}
+    c = {"<cmd>lua require('telescope').extensions.metals.commands()<CR>", "Show Metals Commands"},
+    l = {"<cmd>lua require('metals.config').toggle_logs('vsp')<CR>", "Show metals logs"}
   },
   p = { "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", "Yank history" },
   t = { "<cmd>NvimTreeToggle<CR>", "Folder Tree toggle"},
