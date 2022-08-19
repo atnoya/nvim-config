@@ -160,7 +160,8 @@ wk.register({
     l = {"<cmd>lua require('metals.config').toggle_logs('vsp')<CR>", "Show metals logs"}
   },
   p = { "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", "Yank history" },
-  t = { "<cmd>NvimTreeToggle<CR>", "Folder Tree toggle"},
+  t = { "<cmd>NvimTreeFocus<CR>", "Folder Tree toggle"},
+  y = { "<cmd>NvimTreeToggle<CR>", "Folder Tree toggle"},
   T = { "<cmd>NvimTreeFindFile<CR>", "Find file in Tree"},
   w = {
     s = {  '<cmd>lua require"metals".hover_worksheet()<CR>', "LSP Metals worksheet hover" }
