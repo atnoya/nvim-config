@@ -80,6 +80,7 @@ wk.register({
   ['<C-S-h>'] = { "<cmd>BufferLineMovePrev<CR>", "Move Back Tab/Buffer"},
   ['<C-S-l>'] = { "<cmd>BufferLineMoveNext<CR>", "Move Forth Tab/Buffer"},
   ['<C-n>'] = "Number toggle",
+  ['<C-t>'] = "Toggle terminal",
   ['<C-w>'] = { "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>", "Close Tab/Buffer"},
   f = {
     f = { "<cmd>lua require('telescope.builtin').find_files()<CR>", "Find files" },
